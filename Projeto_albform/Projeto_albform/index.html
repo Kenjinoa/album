@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álbum de Figurinhas - Dev Icons</title>
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos da Aplicação -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- St.PageFlip Library -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+</head>
+<body>
+
+  <!-- Botão de Alternar Áudio (Web Audio API) -->
+  <button id="sound-toggle" class="sound-btn" aria-label="Alternar som de página" title="Alternar som">
+    <svg class="sound-icon-on" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    </svg>
+    <svg class="sound-icon-off hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>
+    </svg>
+  </button>
+
+  <!-- Botões de Navegação Lateral -->
+  <button id="btn-prev" class="nav-btn nav-btn-left" aria-label="Página anterior" title="Página anterior">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+
+  <button id="btn-next" class="nav-btn nav-btn-right" aria-label="Próxima página" title="Próxima página">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+
+  <!-- Contêiner Principal do Álbum -->
+  <main class="album-viewport">
+    <div id="book" class="flip-book">
+
+      <!-- ============================================== -->
+      <!-- PÁGINA 0: CAPA (Cover)                         -->
+      <!-- ============================================== -->
+      <div class="page page-cover">
+        <div class="page-content cover-content">
+          <div class="cover-seal">Edição Especial Colecionador</div>
+
+          <div class="cover-body">
+            <h1 class="cover-title glitch" data-text="DEV ICONS">DEV ICONS</h1>
+            <p class="cover-subtitle">ÁLBUM HISTÓRICO</p>
+
+            <div class="cover-art">
+              <div class="art-grid"></div>
+
+              <!-- Mini cards flutuantes decorativos -->
+              <div class="mini-card mc-turing">
+                <div class="mc-avatar">AT</div>
+                <span class="mc-num">#01</span>
+              </div>
+              <div class="mini-card mc-guido">
+                <div class="mc-avatar">GV</div>
+                <span class="mc-num">#06</span>
+              </div>
+              <div class="mini-card mc-jobs">
+                <div class="mc-avatar">SJ</div>
+                <span class="mc-num">#10</span>
+              </div>
+
+              <!-- Esfera central animada -->
+              <div class="tech-sphere">
+                <div class="sphere-core">
+                  <svg class="art-logo" viewBox="0 0 24 24">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div class="sphere-ring ring-1"></div>
+                <div class="sphere-ring ring-2"></div>
+              </div>
+            </div>
+
+            <p class="cover-footer-text">AS GRANDES MENTES DA COMPUTAÇÃO</p>
+          </div>
+
+          <div class="cover-footer">VOL. 01 • PROJETO ALBFORM</div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- PÁGINA 1: PIONEIROS DA COMPUTAÇÃO & IA         -->
+      <!-- ============================================== -->
+      <div class="page">
+        <div class="page-content">
+          <header class="page-header">
+            <span class="tech-badge badge-ia">INTELIGÊNCIA ARTIFICIAL & TEORIA</span>
+            <h2 class="page-title">Pioneiros da Computação</h2>
+          </header>
+
+          <section class="stickers-grid">
+            <div class="sticker-slot">
+              <div class="slot-number">#01</div>
+              <p class="slot-name">Alan Turing</p>
+              <span class="slot-role">Pai da Ciência da Computação</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#02</div>
+              <p class="slot-name">Ada Lovelace</p>
+              <span class="slot-role">Primeira Programadora da História</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#03</div>
+              <p class="slot-name">John McCarthy</p>
+              <span class="slot-role">Criador do termo IA e Lisp</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#04</div>
+              <p class="slot-name">Geoffrey Hinton</p>
+              <span class="slot-role">Pioneiro em Deep Learning</span>
+            </div>
+
+            <div class="sticker-slot special-slot">
+              <div class="slot-number">#05</div>
+              <p class="slot-name">Claude Shannon</p>
+              <span class="slot-role">Fundador da Teoria da Informação</span>
+            </div>
+          </section>
+
+          <footer class="page-footer">
+            <span>Seção 01 • Fundamentos</span>
+            <span>01</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- PÁGINA 2: LINGUAGENS & PYTHON                  -->
+      <!-- ============================================== -->
+      <div class="page">
+        <div class="page-content">
+          <header class="page-header">
+            <span class="tech-badge badge-python">LINGUAGENS DE PROGRAMAÇÃO</span>
+            <h2 class="page-title">Criadores de Linguagens</h2>
+          </header>
+
+          <section class="stickers-grid">
+            <div class="sticker-slot">
+              <div class="slot-number">#06</div>
+              <p class="slot-name">Guido van Rossum</p>
+              <span class="slot-role">Criador da Linguagem Python</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#07</div>
+              <p class="slot-name">Dennis Ritchie</p>
+              <span class="slot-role">Criador do C e Co-criador do Unix</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#08</div>
+              <p class="slot-name">Bjarne Stroustrup</p>
+              <span class="slot-role">Criador do C++</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#09</div>
+              <p class="slot-name">Brendan Eich</p>
+              <span class="slot-role">Criador do JavaScript</span>
+            </div>
+
+            <div class="sticker-slot special-slot">
+              <div class="slot-number">#10</div>
+              <p class="slot-name">Grace Hopper</p>
+              <span class="slot-role">Criadora do Primeiro Compilador & COBOL</span>
+            </div>
+          </section>
+
+          <footer class="page-footer">
+            <span>Seção 02 • Linguagens</span>
+            <span>02</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- PÁGINA 3: SISTEMAS OPERACIONAIS & REDES        -->
+      <!-- ============================================== -->
+      <div class="page">
+        <div class="page-content">
+          <header class="page-header">
+            <span class="tech-badge badge-os">SISTEMAS OPERACIONAIS & INFRA</span>
+            <h2 class="page-title">Arquitetos de Sistemas</h2>
+          </header>
+
+          <section class="stickers-grid">
+            <div class="sticker-slot">
+              <div class="slot-number">#11</div>
+              <p class="slot-name">Linus Torvalds</p>
+              <span class="slot-role">Criador do Kernel Linux e Git</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#12</div>
+              <p class="slot-name">Ken Thompson</p>
+              <span class="slot-role">Co-criador do Unix, B e Go</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#13</div>
+              <p class="slot-name">Tim Berners-Lee</p>
+              <span class="slot-role">Inventor da World Wide Web (WWW)</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#14</div>
+              <p class="slot-name">Margaret Hamilton</p>
+              <span class="slot-role">Diretora de Software do Projeto Apollo</span>
+            </div>
+
+            <div class="sticker-slot special-slot">
+              <div class="slot-number">#15</div>
+              <p class="slot-name">Richard Stallman</p>
+              <span class="slot-role">Fundador da Free Software Foundation & GNU</span>
+            </div>
+          </section>
+
+          <footer class="page-footer">
+            <span>Seção 03 • Sistemas</span>
+            <span>03</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- PÁGINA 4: BANCOS DE DADOS & ALGORITMOS         -->
+      <!-- ============================================== -->
+      <div class="page">
+        <div class="page-content">
+          <header class="page-header">
+            <span class="tech-badge badge-db">DADOS & ENGENHARIA DE SOFTWARE</span>
+            <h2 class="page-title">Mestres dos Dados</h2>
+          </header>
+
+          <section class="stickers-grid">
+            <div class="sticker-slot">
+              <div class="slot-number">#16</div>
+              <p class="slot-name">Edgar F. Codd</p>
+              <span class="slot-role">Pioneiro do Modelo Relacional (SQL)</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#17</div>
+              <p class="slot-name">Barbara Liskov</p>
+              <span class="slot-role">Princípio de Liskov & Tipos Abstratos</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#18</div>
+              <p class="slot-name">Donald Knuth</p>
+              <span class="slot-role">Autor de 'The Art of Computer Programming'</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#19</div>
+              <p class="slot-name">James Gosling</p>
+              <span class="slot-role">Pai da Linguagem Java</span>
+            </div>
+
+            <div class="sticker-slot special-slot">
+              <div class="slot-number">#20</div>
+              <p class="slot-name">Satoshi Nakamoto</p>
+              <span class="slot-role">Criador do Bitcoin e Protocolo Blockchain</span>
+            </div>
+          </section>
+
+          <footer class="page-footer">
+            <span>Seção 04 • Dados & Algoritmos</span>
+            <span>04</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- PÁGINA 5: TIME DE DESENVOLVEDORES (ÚLTIMA PÁGINA) -->
+      <!-- ============================================== -->
+      <div class="page">
+        <div class="page-content">
+          <header class="page-header">
+            <span class="tech-badge badge-brasil">INTEGRANTES DO PROJETO</span>
+            <h2 class="page-title">Time de Desenvolvedores</h2>
+          </header>
+
+          <section class="stickers-grid">
+            <div class="sticker-slot">
+              <div class="slot-number">#21</div>
+              <p class="slot-name">Gustavo</p>
+              <span class="slot-role">Dev & Criador</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#22</div>
+              <p class="slot-name">Bruno</p>
+              <span class="slot-role">Dev & Criador</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#23</div>
+              <p class="slot-name">Kauan</p>
+              <span class="slot-role">Dev & Criador</span>
+            </div>
+
+            <div class="sticker-slot">
+              <div class="slot-number">#24</div>
+              <p class="slot-name">Jose</p>
+              <span class="slot-role">Dev & Criador</span>
+            </div>
+
+            <div class="sticker-slot special-slot">
+              <div class="slot-number">#25</div>
+              <p class="slot-name">Joaquim</p>
+              <span class="slot-role">Dev & Criador</span>
+            </div>
+          </section>
+
+          <footer class="page-footer">
+            <span>Seção 05 • Equipe</span>
+            <span>05</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- PÁGINA 6: CONTRACAPA (Back Cover)              -->
+      <!-- ============================================== -->
+      <div class="page page-cover-back">
+        <div class="page-content cover-back-content">
+          <header class="cover-back-header">
+            <h2>DEV ICONS</h2>
+          </header>
+
+          <div class="cover-back-body">
+            <div class="tech-logo-collage">ALBUM DE FIGURINHAS • TECNOLOGIA</div>
+
+            <p class="summary-text">
+              Uma jornada visual e interativa pela história da computação, dos primórdios da máquina de Turing aos algoritmos modernos de Inteligência Artificial.
+            </p>
+
+            <!-- Código de Barras Decorativo -->
+            <div class="barcode-container">
+              <div class="barcode">
+                <span class="bar thick"></span>
+                <span class="bar thin"></span>
+                <span class="bar"></span>
+                <span class="bar thick"></span>
+                <span class="bar thin"></span>
+                <span class="bar"></span>
+                <span class="bar thick"></span>
+                <span class="bar thin"></span>
+                <span class="bar"></span>
+                <span class="bar thick"></span>
+                <span class="bar"></span>
+                <span class="bar thin"></span>
+                <span class="bar thick"></span>
+                <span class="bar"></span>
+                <span class="bar thin"></span>
+                <span class="bar thick"></span>
+                <span class="bar thin"></span>
+                <span class="bar"></span>
+              </div>
+              <span class="barcode-number">9 780123 456789</span>
+            </div>
+          </div>
+
+          <footer class="cover-back-footer">
+            © 2026 PROJETO ALBFORM • TODOS OS DIREITOS RESERVADOS
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Script Principal da Aplicação -->
+  <script src="app.js"></script>
+</body>
+</html>
